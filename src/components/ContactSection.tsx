@@ -1,8 +1,68 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Send, FileText } from "lucide-react";
+import { Github, Linkedin, Send, FileText, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "13fa78a9-dfe0-4347-9c73-ee89f8afab3b",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message sent!",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast({
+          title: "Error",
+          description: result.message || "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="section-padding min-h-screen flex flex-col justify-center bg-zinc-900/30">
       <div className="content-width">
@@ -66,29 +126,44 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <div className="space-y-2">
-              <label className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Name</label>
+              <label htmlFor="name" className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Name</label>
               <input 
+                id="name"
+                name="name"
                 type="text" 
+                required
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Your name"
                 className="w-full bg-transparent border border-white/10 p-4 font-mono text-sm focus:outline-none focus:border-white/30 transition-colors placeholder:text-muted-foreground/50"
               />
             </div>
             
             <div className="space-y-2">
-              <label className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Email</label>
+              <label htmlFor="email" className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Email</label>
               <input 
+                id="email"
+                name="email"
                 type="email" 
+                required
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="your@email.com"
                 className="w-full bg-transparent border border-white/10 p-4 font-mono text-sm focus:outline-none focus:border-white/30 transition-colors placeholder:text-muted-foreground/50"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Message</label>
+              <label htmlFor="message" className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Message</label>
               <textarea 
+                id="message"
+                name="message"
+                required
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Your message..."
                 rows={5}
                 className="w-full bg-transparent border border-white/10 p-4 font-mono text-sm focus:outline-none focus:border-white/30 transition-colors placeholder:text-muted-foreground/50 resize-none"
@@ -98,9 +173,14 @@ const ContactSection = () => {
             <Button 
               type="submit"
               variant="outline"
+              disabled={isSubmitting}
               className="w-full md:w-auto border-white/10 hover:bg-white/5 font-mono text-xs uppercase tracking-widest py-6 px-8"
             >
-              Send Message <Send size={14} className="ml-2" />
+              {isSubmitting ? (
+                <>Sending... <Loader2 size={14} className="ml-2 animate-spin" /></>
+              ) : (
+                <>Send Message <Send size={14} className="ml-2" /></>
+              )}
             </Button>
           </motion.form>
         </div>
