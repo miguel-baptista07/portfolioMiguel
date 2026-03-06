@@ -1,20 +1,34 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Miguel Baptista — Portfolio
 
-# Run and deploy your AI Studio app
+Personal developer portfolio built with React, TypeScript, Tailwind CSS, and Vite.
 
-This contains everything you need to run your app locally.
+🌐 Live: [miguel-baptista-portfolio.vercel.app](https://miguel-baptista-portfolio.vercel.app)
 
-View your app in AI Studio: https://ai.studio/apps/49853243-8997-47a4-8b21-851ba893981e
+## About
 
-## Run Locally
+Second-year Computer Engineering student at Universidade Lusófona, focused on 
+Cybersecurity, secure software development, and systems programming.
 
-**Prerequisites:**  Node.js
+This portfolio showcases my projects, technical skills, and academic background.
 
+## Tech Stack
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- React + TypeScript
+- Tailwind CSS
+- Vite
+- Deployed on Vercel
+
+## Sections
+
+- **Home** — Introduction and focus areas
+- **Projects** — Selected academic and personal projects
+- **Education** — Academic background and relevant coursework
+- **Expertise** — Core technical areas
+- **About** — Personal background
+- **Contact** — Get in touch
+
+## Contact
+
+- Email: miguelkevlin23@gmail.com
+- LinkedIn: [linkedin.com/in/miguel-baptista-170744355](https://www.linkedin.com/in/miguel-baptista-170744355/)
+- GitHub: [github.com/miguel-baptista07](https://github.com/miguel-baptista07)
