@@ -2,22 +2,25 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, Image as ImageIcon, ChevronLeft, ChevronRight, X } from "lucide-react";
 
-// Import images
 import javaGameImg from "../assets/img/java-game.png";
-import frontendLabs1 from "../assets/img/frontend-labs-1.png";
+
+import frontendLabs1 from "../assets/img/frontend-labs-1.png"; 
 import frontendLabs2 from "../assets/img/frontend-labs-2.png";
 import frontendLabs3 from "../assets/img/frontend-labs-3.png";
+
 import reactNextjs1 from "../assets/img/react-nextjs-1.png";
 import reactNextjs2 from "../assets/img/react-nextjs-2.png";
 import reactNextjs3 from "../assets/img/react-nextjs-3.png";
 import reactNextjs4 from "../assets/img/react-nextjs-4.png";
 import reactNextjs5 from "../assets/img/react-nextjs-5.png";
+
 import pythonPacketSniffer1 from "../assets/img/pythonpacketsniffer1.png";
 import pythonPacketSniffer2 from "../assets/img/pythonpacketsniffer2.png";
 import pythonPacketSniffer3 from "../assets/img/pythonpacketsniffer3.png";
 import pythonPacketSniffer4 from "../assets/img/pythonpacketsniffer4.png";
-import portScanner1 from "../assets/img/portscanner-1.png";
-import passwordCracker from "../assets/img/passwordcracker.png";
+
+import portScanner1 from "../assets/img/portscanner1.png";
+import passwordCracker from "../assets/img/passwordcraker.png";
 
 const projects = [
   {
