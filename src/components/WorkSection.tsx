@@ -12,8 +12,79 @@ import reactNextjs2 from "../assets/img/react-nextjs-2.png";
 import reactNextjs3 from "../assets/img/react-nextjs-3.png";
 import reactNextjs4 from "../assets/img/react-nextjs-4.png";
 import reactNextjs5 from "../assets/img/react-nextjs-5.png";
+import pythonPacketSniffer1 from "../assets/img/pythonpacketsniffer1.png";
+import pythonPacketSniffer2 from "../assets/img/pythonpacketsniffer2.png";
+import pythonPacketSniffer3 from "../assets/img/pythonpacketsniffer3.png";
+import pythonPacketSniffer4 from "../assets/img/pythonpacketsniffer4.png";
+import portScanner1 from "../assets/img/portscanner-1.png";
+import passwordCracker from "../assets/img/passwordcracker.png";
 
 const projects = [
+  {
+    title: "Python Packet Sniffer",
+    description: "Network packet sniffer using raw sockets to capture and inspect live traffic at the IP/TCP layer. Structured across multiple modules with a malicious traffic simulator for testing.",
+    bullets: [
+      "Parses packet headers to extract source/destination IPs and protocol type",
+      "Includes a malicious traffic simulator for anomaly detection testing",
+      "Modular structure: sniffer.py, app.py, mal_app.py, ui.py"
+    ],
+    tags: ["Python", "Raw Sockets", "TCP/IP", "Network Security"],
+    githubUrl: "https://github.com/miguel-baptista07/Python-Packet-Sniffer",
+    images: [
+      pythonPacketSniffer1,
+      pythonPacketSniffer2,
+      pythonPacketSniffer3,
+      pythonPacketSniffer4
+    ]
+  },
+  {
+    title: "Python Port Scanner",
+    description: "TCP port scanner that probes ports 1–1024 via socket connections, resolves hostnames to IPs, and measures execution time.",
+    bullets: [
+      "Detects open and closed ports across the full well-known port range",
+      "Replicates the core logic of tools like nmap using Python's socket library"
+    ],
+    tags: ["Python", "TCP Sockets", "Networking", "Cybersecurity"],
+    githubUrl: "https://github.com/miguel-baptista07/Python-Port-Scanner",
+    images: [
+      portScanner1
+    ]
+  },
+  {
+    title: "React & Next.js — Frontend Labs & E-Commerce Platform",
+    description: "Modern web application built with React and Next.js, focused on component architecture, state management, and real-world frontend patterns.",
+    bullets: [
+      "Product listing with search and sorting functionality",
+      "Dynamic routes for product details and navigation",
+      "Shopping cart with persistent state using localStorage",
+      "Favorites system synchronized across pages",
+      "Countries explorer with filtering and ordering"
+    ],
+    tags: ["React", "Next.js", "TypeScript", "SWR", "Tailwind CSS", "LocalStorage"],
+    liveUrl: "https://lab11part1.vercel.app/",
+    githubUrl: "https://github.com/miguel-baptista07/diw-lab8",
+    galleryUrl: "#",
+    images: [
+      reactNextjs5,
+      reactNextjs4,
+      reactNextjs3,
+      reactNextjs2,
+      reactNextjs1
+    ]
+  },
+  {
+    title: "Password Hash Cracker",
+    description: "Dictionary attack tool that cracks SHA1 password hashes using a wordlist — demonstrates why unsalted hashes are insecure.",
+    bullets: [
+      "Hashes each wordlist entry and compares against the target SHA1 hash",
+      "Highlights the need for password salting and stronger algorithms like bcrypt"
+    ],
+    tags: ["Python", "SHA1", "Cryptography", "Cybersecurity"],
+    githubUrl: "https://github.com/miguel-baptista07/Password-Hash-Cracker",
+    images: [
+      passwordCracker
+    ]
+  },
   {
     title: "The Great Programming Journey",
     description: "Educational board game engine developed in Java, focused on object-oriented design and game logic.",
@@ -43,28 +114,6 @@ const projects = [
       frontendLabs3,
       frontendLabs2,
       frontendLabs1
-    ]
-  },
-  {
-    title: "React & Next.js — Frontend Labs & E-Commerce Platform",
-    description: "Modern web application built with React and Next.js, focused on component architecture, state management, and real-world frontend patterns.",
-    bullets: [
-      "Product listing with search and sorting functionality",
-      "Dynamic routes for product details and navigation",
-      "Shopping cart with persistent state using localStorage",
-      "Favorites system synchronized across pages",
-      "Countries explorer with filtering and ordering"
-    ],
-    tags: ["React", "Next.js", "TypeScript", "SWR", "Tailwind CSS", "LocalStorage"],
-    liveUrl: "https://lab11part1.vercel.app/",
-    githubUrl: "https://github.com/miguel-baptista07/diw-lab8",
-    galleryUrl: "#",
-    images: [
-      reactNextjs5,
-      reactNextjs4,
-      reactNextjs3,
-      reactNextjs2,
-      reactNextjs1
     ]
   }
 ];
