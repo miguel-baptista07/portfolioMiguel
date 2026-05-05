@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "HOME", href: "#hero" },
-  { label: "PROJECTS", href: "#work" },
-  { label: "EDUCATION", href: "#education" },
-  { label: "EXPERTISE", href: "#expertise" },
   { label: "ABOUT", href: "#about" },
+  { label: "EXPERIENCE", href: "#experience" },
+  { label: "PROJECTS", href: "#work" },
   { label: "CONTACT", href: "#contact" },
 ];
 
@@ -16,10 +15,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -43,55 +39,62 @@ const Navigation = () => {
       transition={{ duration: 0.6, delay: 0.8 }}
     >
       <div className="content-width px-6 md:px-12 flex items-center justify-between">
-        <a 
-          href="#hero" 
+        <a
+          href="#hero"
           onClick={(e) => handleNavClick(e, "#hero")}
           className="font-mono text-sm tracking-widest hover:text-primary transition-colors"
         >
           MB_
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Desktop navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item, index) => (
             <a
               key={item.label}
               href={item.href}
               onClick={(e) => handleNavClick(e, item.href)}
-              className="mono-sm text-[10px] tracking-widest text-muted-foreground hover:text-primary transition-colors"
+              className="font-mono text-[10px] tracking-widest text-muted-foreground hover:text-primary transition-colors"
             >
-              <span className="text-primary mr-1 text-[9px]">
-                {index + 1}.
-              </span>
+              <span className="text-primary mr-1 text-[9px]">{index + 1}.</span>
               {item.label}
             </a>
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile menu button */}
         <button
           className="md:hidden text-foreground"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
         </button>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-background border-b border-border p-6 md:hidden flex flex-col gap-4">
-            {navItems.map((item, index) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="mono-sm text-sm py-2"
-              >
-                <span className="text-primary mr-2">{index + 1}.</span>
-                {item.label}
-              </a>
-            ))}
-          </div>
-        )}
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border px-6 pb-6 pt-4 md:hidden flex flex-col"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+            >
+              {navItems.map((item, index) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="font-mono text-sm py-3.5 border-b border-white/5 last:border-0 hover:text-primary transition-colors"
+                >
+                  <span className="text-primary mr-2 text-xs">{index + 1}.</span>
+                  {item.label}
+                </a>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   );

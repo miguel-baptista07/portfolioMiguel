@@ -1,46 +1,72 @@
 import { motion } from "framer-motion";
+import { Shield, GitBranch, Bug } from "lucide-react";
+
+const services = [
+  {
+    icon: <Shield className="w-6 h-6 text-primary" />,
+    title: "Cybersecurity",
+    description: "Vulnerability analysis, ethical hacking and offensive and defensive security tools.",
+  },
+  {
+    icon: <GitBranch className="w-6 h-6 text-primary" />,
+    title: "Open Source Contribution",
+    description: "Contributing to real-world open-source projects through professional Git workflows: pull requests, code reviews and issue tracking.",
+  },
+  {
+    icon: <Bug className="w-6 h-6 text-primary" />,
+    title: "CTF & Ethical Hacking",
+    description: "Participation in CTF competitions, solving security challenges and controlled exploitation.",
+  },
+];
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-padding min-h-[50vh] flex flex-col justify-center">
-      <div className="max-w-6xl">
-        <motion.h2 
-          className="font-serif text-5xl md:text-6xl mb-16 text-white"
+    <section id="about" className="section-padding min-h-screen flex flex-col justify-center">
+      <div className="max-w-4xl mx-auto w-full">
+        <motion.h2
+          className="font-serif text-4xl md:text-5xl lg:text-6xl mb-16 text-white text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
         >
-          About
+          About Me
         </motion.h2>
 
-        <motion.div 
-          className="max-w-3xl space-y-8 text-lg md:text-xl leading-relaxed text-muted-foreground font-mono"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <p className="text-white">
-            I approach learning and work with the same discipline I developed 
-            playing handball for years—understanding when to push forward and 
-            when to support the team. As team captain, I've learned to stay 
-            calm under pressure, make decisions in high-stress situations, and 
-            transmit calm and confidence to my teammates.
-          </p>
-          <p>
-            Currently building a strong foundation in software engineering, with a focus 
-            on understanding systems deeply—from frontend interfaces to underlying 
-            security protocols. I believe in writing code that is maintainable, 
-            efficient, and secure.
-          </p>
-          <p>
-            Based in Portugal, I'm committed to long-term growth in this field—taking 
-            the time to learn properly, one concept at a time. Looking ahead, I aim to 
-            specialize in cybersecurity while continuing to deepen my expertise in 
-            frontend engineering and AI.
-          </p>
-        </motion.div>
+        <motion.p
+            className="text-lg leading-relaxed text-muted-foreground font-mono text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            I'm a Computer Engineering student at Universidade Lusófona, focused on{" "}
+            <span className="text-primary">Cybersecurity</span> and software development.
+            Passionate about CTFs, ethical hacking and building{" "}
+            <span className="text-primary">security tools</span>.
+          </motion.p>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {services.map((service, i) => (
+            <motion.div
+              key={i}
+              className="p-6 border border-white/10 bg-card/30 hover:bg-card/60 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(29,200,160,0.3)] transition-all duration-300 group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <div className="mb-4 p-3 border border-primary/20 bg-primary/5 w-fit mx-auto group-hover:bg-primary/10 transition-colors duration-300">
+                {service.icon}
+              </div>
+              <h3 className="font-serif text-xl text-white mb-3 text-center">{service.title}</h3>
+              <p className="font-mono text-xs text-muted-foreground leading-relaxed text-center">
+                {service.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

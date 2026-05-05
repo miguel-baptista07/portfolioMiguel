@@ -15,7 +15,7 @@
     --popover: 0 0% 6%;
     --popover-foreground: 0 0% 92%;
 
-    --primary: 174 60% 50%;
+    --primary: 163 72% 45%;
     --primary-foreground: 0 0% 4%;
 
     --secondary: 0 0% 10%;
@@ -24,7 +24,7 @@
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 55%;
 
-    --accent: 174 60% 50%;
+    --accent: 163 72% 45%;
     --accent-foreground: 0 0% 4%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,28 +32,27 @@
 
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 174 60% 50%;
+    --ring: 163 72% 45%;
 
     --radius: 0.25rem;
 
-    /* Custom tokens */
     --font-mono: 'JetBrains Mono', monospace;
     --font-serif: 'Instrument Serif', serif;
-    
-    --glow-primary: 0 0 40px hsl(174 60% 50% / 0.15);
-    --glow-subtle: 0 0 60px hsl(174 60% 50% / 0.08);
-    
+
+    --glow-primary: 0 0 40px hsl(163 72% 45% / 0.15);
+    --glow-subtle: 0 0 60px hsl(163 72% 45% / 0.08);
+
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 6%;
     --sidebar-foreground: 0 0% 92%;
-    --sidebar-primary: 174 60% 50%;
+    --sidebar-primary: 163 72% 45%;
     --sidebar-primary-foreground: 0 0% 4%;
     --sidebar-accent: 0 0% 10%;
     --sidebar-accent-foreground: 0 0% 92%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 174 60% 50%;
+    --sidebar-ring: 163 72% 45%;
   }
 }
 
@@ -95,7 +94,7 @@
   }
 
   .section-padding {
-    @apply px-6 py-32 md:px-12 lg:px-24 xl:px-32;
+    @apply px-6 py-16 md:py-32 md:px-12 lg:px-24 xl:px-32;
   }
 
   .mono-sm {
@@ -127,31 +126,37 @@
   }
 
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes pulseSlow {
-    0%, 100% {
-      opacity: 0.6;
-    }
-    50% {
-      opacity: 1;
-    }
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
   }
+
+}
+
+@keyframes logScroll {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+.log-scroll {
+  animation: logScroll 100s linear infinite;
+  will-change: transform;
+}
+
+@keyframes scrollBob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.animate-scroll-bob {
+  animation: scrollBob 2s ease-in-out infinite;
 }
