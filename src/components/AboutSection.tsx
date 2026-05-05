@@ -33,18 +33,41 @@ const AboutSection = () => {
           About Me
         </motion.h2>
 
-        <motion.p
-            className="text-lg leading-relaxed text-muted-foreground font-mono text-center mb-16"
+        <div className="space-y-4 mb-16 max-w-2xl mx-auto">
+          <motion.p
+            className="text-base leading-relaxed text-muted-foreground font-mono text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            I'm a Computer Engineering student at Universidade Lusófona, focused on{" "}
-            <span className="text-primary">Cybersecurity</span> and software development.
-            Passionate about CTFs, ethical hacking and building{" "}
-            <span className="text-primary">security tools</span>.
+            I'm a Computer Engineering student at Universidade Lusófona, with a focus on{" "}
+            <span className="text-primary">Cybersecurity</span> and secure software development.
+            I build security tools from scratch: packet sniffers, port scanners and hash crackers,
+            and contribute to real-world open-source projects through professional Git workflows.
           </motion.p>
+          <motion.p
+            className="text-base leading-relaxed text-muted-foreground font-mono text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            Active member of <span className="text-primary">NEDI</span>, the student tech association
+            at Lusófona, and <span className="text-primary">CGI Campus Ambassador</span>, where I help
+            bridge students and the tech industry through workshops and events.
+          </motion.p>
+          <motion.p
+            className="text-base leading-relaxed text-muted-foreground font-mono text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            Currently working through <span className="text-primary">TryHackMe</span> with a goal
+            of becoming a penetration tester. I learn by building, breaking, and contributing.
+          </motion.p>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {services.map((service, i) => (

@@ -285,7 +285,7 @@ const HeroSection = () => {
             href="https://github.com/miguel-baptista07"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 border border-white/10 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-200"
+            className="p-2.5 border border-white/10 text-muted-foreground hover:border-primary/50 hover:text-primary hover:bg-primary/10 hover:scale-[1.15] hover:shadow-[0_0_15px_rgba(29,200,160,0.4)] transition-all duration-300 ease-in-out"
             aria-label="GitHub"
           >
             <Github size={18} />
@@ -294,14 +294,14 @@ const HeroSection = () => {
             href="https://www.linkedin.com/in/miguel-baptista-170744355/"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 border border-white/10 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-200"
+            className="p-2.5 border border-white/10 text-muted-foreground hover:border-primary/50 hover:text-primary hover:bg-primary/10 hover:scale-[1.15] hover:shadow-[0_0_15px_rgba(29,200,160,0.4)] transition-all duration-300 ease-in-out"
             aria-label="LinkedIn"
           >
             <Linkedin size={18} />
           </a>
           <a
             href="mailto:miguelkevlin23@gmail.com"
-            className="p-2.5 border border-white/10 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-200"
+            className="p-2.5 border border-white/10 text-muted-foreground hover:border-primary/50 hover:text-primary hover:bg-primary/10 hover:scale-[1.15] hover:shadow-[0_0_15px_rgba(29,200,160,0.4)] transition-all duration-300 ease-in-out"
             aria-label="Email"
           >
             <Mail size={18} />

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Loader2, Terminal, Shield, Clock } from "lucide-react";
+import { Send, Loader2, Terminal, Shield, Clock, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
@@ -104,6 +104,40 @@ const ContactSection = () => {
                 </div>
               ))}
             </div>
+
+            <motion.div
+              className="flex gap-3 pt-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <a
+                href="https://github.com/miguel-baptista07"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 border border-white/10 text-muted-foreground hover:border-primary/50 hover:text-primary hover:bg-primary/10 hover:scale-[1.15] hover:shadow-[0_0_15px_rgba(29,200,160,0.4)] transition-all duration-300 ease-in-out"
+                aria-label="GitHub"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/miguel-baptista-170744355"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 border border-white/10 text-muted-foreground hover:border-primary/50 hover:text-primary hover:bg-primary/10 hover:scale-[1.15] hover:shadow-[0_0_15px_rgba(29,200,160,0.4)] transition-all duration-300 ease-in-out"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="mailto:miguelkevlin23@gmail.com"
+                className="p-2.5 border border-white/10 text-muted-foreground hover:border-primary/50 hover:text-primary hover:bg-primary/10 hover:scale-[1.15] hover:shadow-[0_0_15px_rgba(29,200,160,0.4)] transition-all duration-300 ease-in-out"
+                aria-label="Email"
+              >
+                <Mail size={18} />
+              </a>
+            </motion.div>
           </motion.div>
 
           {/* Right column — form */}
